@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "zxSoFtDjMhTZka1qia+JbIya2MGRT53ly9G7nDP55WM=",
+  "Source": "Camunda-Client",
+  "BasePath": "_content/Camunda-Client",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

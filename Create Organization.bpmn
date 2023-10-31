@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1nb7vvo" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.13.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+  <bpmn:process id="create_organization" name="Create Organization" isExecutable="true" camunda:historyTimeToLive="1000">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1ehu6g4</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1ehu6g4" sourceRef="StartEvent_1" targetRef="Activity_1ohwgws" />
+    <bpmn:endEvent id="Event_14cvy1v">
+      <bpmn:incoming>Flow_15cfn1n</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_15cfn1n" sourceRef="Activity_1ohwgws" targetRef="Event_14cvy1v" />
+    <bpmn:serviceTask id="Activity_1ohwgws" name="Create Organization" camunda:type="external" camunda:topic="create_organization">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="Phone">${phone}</camunda:inputParameter>
+          <camunda:inputParameter name="Address">${address}</camunda:inputParameter>
+          <camunda:inputParameter name="Type">${type}</camunda:inputParameter>
+          <camunda:inputParameter name="Name">${name}</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1ehu6g4</bpmn:incoming>
+      <bpmn:outgoing>Flow_15cfn1n</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="create_organization">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_14cvy1v_di" bpmnElement="Event_14cvy1v">
+        <dc:Bounds x="522" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0hmhkeq_di" bpmnElement="Activity_1ohwgws">
+        <dc:Bounds x="370" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1ehu6g4_di" bpmnElement="Flow_1ehu6g4">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="370" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_15cfn1n_di" bpmnElement="Flow_15cfn1n">
+        <di:waypoint x="470" y="117" />
+        <di:waypoint x="522" y="117" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

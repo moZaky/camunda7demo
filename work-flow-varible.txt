@@ -1,0 +1,23 @@
+{
+  "address": {
+    "value": "123 Main Street"
+  },
+"tenantId": {
+"value": "646b42bbe93063c0f449dfe8"
+},
+"__createdByUsername": {
+"value": "mohammed.elkassed@maqta.ae"
+},
+  "address2": {
+    "value": "Apt 4B"
+  },
+  "phone": {
+    "value": "555-1234"
+  },
+    "type": {
+    "value": null
+  },
+  "name": {
+    "value": "My Organization"
+  }
+}
