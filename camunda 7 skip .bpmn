@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0jxewax" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.13.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+  <bpmn:process id="TaskSkips" name="Task Skip Demo" isExecutable="true" camunda:historyTimeToLive="1">
+    <bpmn:startEvent id="StartEvent_1" name="Start">
+      <bpmn:outgoing>Flow_107fx94</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_107fx94" sourceRef="StartEvent_1" targetRef="Activity_0boz6md" />
+    <bpmn:endEvent id="Event_13k7ldk" name="End">
+      <bpmn:incoming>Flow_082n610</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0m170ty" sourceRef="Activity_0boz6md" targetRef="Activity_05v6zfd" />
+    <bpmn:serviceTask id="Activity_0boz6md" name="Task A" camunda:type="external" camunda:topic="TaskAWorker">
+      <bpmn:incoming>Flow_107fx94</bpmn:incoming>
+      <bpmn:outgoing>Flow_0m170ty</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1t7mkv5" sourceRef="Activity_05v6zfd" targetRef="Activity_1ifnzf5" />
+    <bpmn:serviceTask id="Activity_05v6zfd" name="Task B" camunda:type="external" camunda:topic="TaskBWorker">
+      <bpmn:incoming>Flow_0m170ty</bpmn:incoming>
+      <bpmn:outgoing>Flow_1t7mkv5</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_082n610" sourceRef="Activity_1ifnzf5" targetRef="Event_13k7ldk" />
+    <bpmn:serviceTask id="Activity_1ifnzf5" name="Task C" camunda:type="external" camunda:topic="TaskCWorker">
+      <bpmn:incoming>Flow_1t7mkv5</bpmn:incoming>
+      <bpmn:outgoing>Flow_082n610</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="TaskSkips">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="185" y="142" width="25" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_05d5kc4_di" bpmnElement="Activity_0boz6md">
+        <dc:Bounds x="290" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_13k7ldk_di" bpmnElement="Event_13k7ldk">
+        <dc:Bounds x="812" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="820" y="142" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1hlbsix_di" bpmnElement="Activity_05v6zfd">
+        <dc:Bounds x="470" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1lzby01_di" bpmnElement="Activity_1ifnzf5">
+        <dc:Bounds x="630" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_107fx94_di" bpmnElement="Flow_107fx94">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="290" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0m170ty_di" bpmnElement="Flow_0m170ty">
+        <di:waypoint x="390" y="117" />
+        <di:waypoint x="470" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1t7mkv5_di" bpmnElement="Flow_1t7mkv5">
+        <di:waypoint x="570" y="117" />
+        <di:waypoint x="630" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_082n610_di" bpmnElement="Flow_082n610">
+        <di:waypoint x="730" y="117" />
+        <di:waypoint x="812" y="117" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
