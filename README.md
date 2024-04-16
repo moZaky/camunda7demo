@@ -23,7 +23,7 @@ docker run -d --name camunda -p 8080:8080 camunda/camunda-bpm-platform:latest
 "value": "646b42bbe93063c0f449dfe8"
 },
 "__createdByUsername": {
-"value": "mohammed.elkassed@maqta.ae"
+"value": "mohammed.elkassed@mySite.com"
 },
   "address2": {
     "value": "Apt 4B"
@@ -36,6 +36,18 @@ docker run -d --name camunda -p 8080:8080 camunda/camunda-bpm-platform:latest
   },
   "name": {
     "value": "My Organization"
+  }
+}
+```
+## workflowPayload for skip demo
+
+```json
+{
+  "address": {
+    "value": "123 Main Street"
+  },
+ "userType": {
+    "value": "superUser"
   }
 }
 ```
